@@ -1,10 +1,21 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { appContainer, board, buttons } from "./App.css"
 import BoardList from "./components/BoardList/BoardList"
+import ListsContainer from "./components/ListsContainer/ListsContainer";
+import { useTypedSelector } from "./hooks/redux";
 
 function App() {
 
   const [activeBoardId, setActiveBoardId] = useState('board-0');
+
+  const boards = useTypedSelector(state => state.boards.boardArray);
+  const getActiveBoard = useMemo(
+    () => boards.find(b => b.boardId === activeBoardId),
+    [boards, activeBoardId]
+  );
+
+  const lists = getActiveBoard?.lists ?? [];
+  const boardId = getActiveBoard?.boardId ?? "";
 
   return (
     <div className={appContainer}>
@@ -13,7 +24,7 @@ function App() {
         setActiveBoardId={setActiveBoardId}
       />
       <div className={board}>
-
+        <ListsContainer lists={lists} boardId={boardId} />
       </div>
 
       <div>
