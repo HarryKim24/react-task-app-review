@@ -54,9 +54,27 @@ export const board = style({
   display: 'flex',
   flexDirection: 'row',
   height: '100%',
-})
+});
 
 export const buttons = style({
-  marginTop: 'auto',
-  paddingLeft: vars.spacing.big2
-})
+  marginTop: vars.spacing.big1,
+  marginLeft: vars.spacing.big2,
+  marginBottom: vars.spacing.big1,
+  padding: `${vars.spacing.medium} ${vars.spacing.big1}`,
+  fontSize: vars.fontSizing.T4,
+  fontWeight: 600,
+  color: vars.color.brightText,
+  backgroundColor: vars.color.deleteButton,
+  border: "none",
+  borderRadius: 8,
+  cursor: "pointer",
+  boxShadow: vars.shadow.basic,
+  transition: "background-color 0.2s ease, transform 0.15s ease",
+  ":hover": {
+    backgroundColor: "#c62828",
+    transform: "scale(1.03)",
+  },
+  ":active": {
+    transform: "scale(0.98)",
+  },
+});
