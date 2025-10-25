@@ -1,16 +1,16 @@
-import { useMemo, useState } from "react"
-import { appContainer, board, buttons } from "./App.css"
-import BoardList from "./components/BoardList/BoardList"
+import { useMemo, useState } from "react";
+import { appContainer, board, buttons } from "./App.css";
+import BoardList from "./components/BoardList/BoardList";
 import ListsContainer from "./components/ListsContainer/ListsContainer";
 import { useTypedSelector } from "./hooks/redux";
+import EditModal from "./components/EditModal/EditModal";
 
 function App() {
+  const [activeBoardId, setActiveBoardId] = useState("board-0");
 
-  const [activeBoardId, setActiveBoardId] = useState('board-0');
-
-  const boards = useTypedSelector(state => state.boards.boardArray);
+  const boards = useTypedSelector((state) => state.boards.boardArray);
   const getActiveBoard = useMemo(
-    () => boards.find(b => b.boardId === activeBoardId),
+    () => boards.find((b) => b.boardId === activeBoardId),
     [boards, activeBoardId]
   );
 
@@ -28,12 +28,12 @@ function App() {
       </div>
 
       <div>
-        <button className={buttons}>
-          이 게시판 삭제하기
-        </button>
+        <button className={buttons}>이 게시판 삭제하기</button>
       </div>
+
+      <EditModal />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
