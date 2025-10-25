@@ -7,7 +7,7 @@ export const wrapper = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  zIndex: 1000,
+  zIndex: 2000,
 });
 
 export const overlay = style({
@@ -18,7 +18,7 @@ export const overlay = style({
 
 export const modalWindow = style({
   position: "relative",
-  zIndex: 1001,
+  zIndex: 2001,
   width: "min(560px, 92vw)",
   maxHeight: "86vh",
   overflowY: "auto",

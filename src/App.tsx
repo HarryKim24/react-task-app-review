@@ -4,6 +4,7 @@ import BoardList from "./components/BoardList/BoardList";
 import ListsContainer from "./components/ListsContainer/ListsContainer";
 import { useTypedSelector } from "./hooks/redux";
 import EditModal from "./components/EditModal/EditModal";
+import LoggerModal from "./components/LoggerModal/LoggerModal";
 
 function App() {
   const [activeBoardId, setActiveBoardId] = useState("board-0");
@@ -32,6 +33,7 @@ function App() {
       </div>
 
       <EditModal />
+      <LoggerModal />
     </div>
   );
 }
