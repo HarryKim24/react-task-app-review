@@ -18,7 +18,10 @@ const Task = ({ taskName, taskDescription, onEdit }: TTaskProps) => {
         <button
           type="button"
           className={editButton}
-          onClick={(e) => { e.stopPropagation(); onEdit?.(); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            onEdit?.();
+          }}
           aria-label="편집"
           title="편집"
         >

@@ -42,19 +42,15 @@ const List = ({ list, boardId }: TListProps) => {
       </div>
 
       {list.tasks.map((task, index) => (
-        <div
-          onClick={() => openEditModal(boardId, list.listId, task)}
+        <Task
           key={task.taskId}
-        >
-          <Task
-            taskName={task.taskName}
-            taskDescription={task.taskDescription}
-            boardId={boardId}
-            id={task.taskId}
-            index={index}
-            onEdit={() => openEditModal(boardId, list.listId, task)}
-          />
-        </div>
+          taskName={task.taskName}
+          taskDescription={task.taskDescription}
+          boardId={boardId}
+          id={task.taskId}
+          index={index}
+          onEdit={() => openEditModal(boardId, list.listId, task)}
+        />
       ))}
 
       <ActionButton boardId={boardId} listId={list.listId} />
